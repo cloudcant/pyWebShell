@@ -2,6 +2,7 @@
 A basic flask api in py that can execute shell code over the web for a simple shell.
 ill probably add forwarding with an ngrok module or something later but im just lazy :p
 
+My frontend is messy so feel free to contribute!
 ## The server Running on a repl
 ![image](https://user-images.githubusercontent.com/66269103/218782283-f2688355-4e9c-42a9-a88c-c6d712c7379e.png)
 
