@@ -1,10 +1,9 @@
-# ip handle py
-## 
-a basic webserver in py that logs clients ip address when they load the webpage.
-you can use your own source by including an html file where the serverpy file is
+# PyBackdoor
+A basic flask api in py that can execute shell code over the web for a simple backdoor
+this is meant for servers that have a domain / portforwarding setup but it can work with other targets if you start an ngrok server or something which ill probably add later im just lazy :p
 
-ok but like you obviusly need a host and domain so it functions correctly
+## The server Running on a repl
+![image](https://user-images.githubusercontent.com/66269103/218782283-f2688355-4e9c-42a9-a88c-c6d712c7379e.png)
 
-![image](https://user-images.githubusercontent.com/66269103/209236028-3524b730-5f21-4fce-8245-f6971f80f028.png)
-
-![image](https://user-images.githubusercontent.com/66269103/209236099-ff5b0568-6f76-461e-8c5a-f4eef990a790.png)
+## Interacting with the api without the frontend
+![image](https://user-images.githubusercontent.com/66269103/218782902-edc90902-a9ff-4401-b70b-fc4df2457a2b.png)
