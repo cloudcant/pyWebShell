@@ -1,5 +1,5 @@
-# PyBackdoor
-A basic flask api in py that can execute shell code over the web for a simple backdoor.
+# WebShell
+A basic flask api in py that can execute shell code over the web for a simple shell.
 ill probably add forwarding with an ngrok module or something later but im just lazy :p
 
 ## The server Running on a repl
